@@ -4,13 +4,19 @@ import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
-import { operatingPrinciples, operatingSteps } from "@/lib/site";
+import {
+  aboutStory,
+  differentiators,
+  operatingSteps,
+  siteConfig,
+  visionPoints,
+} from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "About",
   path: "/about",
   description:
-    "Learn how SASA Solutions approaches residential and commercial cleaning with clear scopes, reliable scheduling, and detail-focused delivery.",
+    "Learn how SASA Solutions started in 2010, grew from house cleaning into wider London support, and aims to deliver trustworthy cleaning services.",
 });
 
 export default function AboutPage() {
@@ -21,7 +27,7 @@ export default function AboutPage() {
         data={buildWebPageSchema({
           title: "About",
           description:
-            "Learn how SASA Solutions approaches residential and commercial cleaning with clear scopes, reliable scheduling, and detail-focused delivery.",
+            "Learn how SASA Solutions started in 2010, grew from house cleaning into wider London support, and aims to deliver trustworthy cleaning services.",
           path: "/about",
         })}
       />
@@ -32,29 +38,25 @@ export default function AboutPage() {
               About
             </p>
             <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground sm:text-5xl">
-              Cleaning service should make the day easier, not harder to manage.
+              Built from house cleaning into broader London cleaning support.
             </h1>
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-              SASA Solutions is built around clear communication, dependable
-              scopes, and service plans that respect how each home or workplace
-              actually runs.
-            </p>
+            <div className="max-w-2xl space-y-4 text-base leading-7 text-muted-foreground">
+              {aboutStory.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
           </div>
 
           <div className="rounded-[1.75rem] border border-foreground/10 bg-background/75 p-6">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              What we optimize for
+              Vision
             </p>
             <div className="mt-4 space-y-4">
-              <p className="text-sm leading-6 text-muted-foreground">
-                Consistency matters more than generic promises. The right clean
-                is one that fits the property, the people using it, and the
-                standard you need to maintain over time.
-              </p>
-              <p className="text-sm leading-6 text-muted-foreground">
-                That is why we keep the process simple: align on the brief,
-                define the rhythm, and keep the result dependable.
-              </p>
+              {visionPoints.map((point) => (
+                <p key={point} className="text-sm leading-6 text-muted-foreground">
+                  {point}
+                </p>
+              ))}
             </div>
           </div>
         </section>
@@ -62,28 +64,25 @@ export default function AboutPage() {
         <section className="space-y-6">
           <div className="max-w-2xl space-y-4">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-              Principles
+              How We Are Different
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-balance text-foreground">
-              The standards behind the service
+              A practical cleaning offer built around trust and flexibility
             </h2>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {operatingPrinciples.map((principle) => (
+            {differentiators.map((point) => (
               <article
-                key={principle.title}
+                key={point}
                 className="rounded-[1.5rem] border border-foreground/10 bg-white/75 p-6"
               >
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                  {principle.eyebrow}
+                  SASA standard
                 </p>
                 <h3 className="mt-3 text-xl font-semibold text-foreground">
-                  {principle.title}
+                  {point}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  {principle.description}
-                </p>
               </article>
             ))}
           </div>
@@ -123,7 +122,7 @@ export default function AboutPage() {
               asChild
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              <Link href="/contact">Start your request brief</Link>
+              <Link href={siteConfig.ctaHref}>{siteConfig.ctaLabel}</Link>
             </Button>
           </div>
         </section>

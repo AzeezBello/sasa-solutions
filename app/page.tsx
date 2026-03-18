@@ -42,19 +42,20 @@ export default function Home() {
               Why SASA
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl">
-              Thoughtful cleaning support for spaces that need consistency.
+              A London cleaning business that has grown from practical local
+              service since 2010.
             </h2>
             <p className="max-w-xl text-base leading-7 text-muted-foreground">
-              We keep the experience simple: clear scopes, dependable arrival
-              windows, and work that respects the people using the space before
-              and after every visit.
+              SASA Solutions started as a house cleaning company and expanded
+              through referrals into wider home, office, residential, moving
+              house, school, and hotel cleaning support.
             </p>
             <Button
               asChild
               variant="outline"
               className="border-foreground/15 bg-white/80 hover:bg-white"
             >
-              <Link href="/about">Learn more about our approach</Link>
+              <Link href="/about">Learn more about SASA</Link>
             </Button>
           </div>
 

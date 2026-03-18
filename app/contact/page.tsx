@@ -4,13 +4,13 @@ import { Suspense } from "react";
 import ContactBriefBuilder from "@/components/ContactBriefBuilder";
 import StructuredData from "@/components/StructuredData";
 import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
-import { quoteChecklist } from "@/lib/site";
+import { quoteChecklist, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   path: "/contact",
   description:
-    "Use the SASA Solutions request brief builder to gather the details needed for a clear cleaning quote and service plan.",
+    "Get in touch with SASA Solutions by phone, email, or request brief for home, office, residential, moving house, school, and hotel cleaning services.",
 });
 
 function ContactBriefFallback() {
@@ -51,7 +51,7 @@ export default function ContactPage() {
         data={buildWebPageSchema({
           title: "Contact",
           description:
-            "Use the SASA Solutions request brief builder to gather the details needed for a clear cleaning quote and service plan.",
+            "Get in touch with SASA Solutions by phone, email, or request brief for home, office, residential, moving house, school, and hotel cleaning services.",
           path: "/contact",
         })}
       />
@@ -62,20 +62,46 @@ export default function ContactPage() {
               Contact
             </p>
             <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground sm:text-5xl">
-              Build a clear request before it turns into a quote.
+              We are a call away.
             </h1>
             <p className="text-base leading-7 text-muted-foreground">
-              This repository does not include a wired email inbox or booking
-              backend yet, so the fastest improvement is a clean request brief
-              you can copy into your preferred contact workflow.
+              Reach SASA Solutions by phone, email, or through the request
+              brief below and the team can shape the right cleaning support for
+              your home, office, moving house, school, or hotel needs.
             </p>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <p>
+                <a href={siteConfig.contact.phoneHref} className="hover:text-foreground">
+                  {siteConfig.contact.phoneDisplay}
+                </a>
+              </p>
+              <p>
+                <a href={siteConfig.contact.emailHref} className="hover:text-foreground">
+                  {siteConfig.contact.email}
+                </a>
+              </p>
+              <p>{siteConfig.contact.address}</p>
+            </div>
           </div>
 
           <div className="rounded-[1.75rem] border border-foreground/10 bg-background/75 p-6">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              What to include
+              Operating Hours
             </p>
             <div className="mt-4 space-y-3">
+              {siteConfig.contact.hours.map((item) => (
+                <p
+                  key={item}
+                  className="rounded-[1rem] border border-foreground/10 bg-white/80 px-4 py-3 text-sm leading-6 text-muted-foreground"
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+            <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+              Quote checklist
+            </p>
+            <div className="mt-3 space-y-3">
               {quoteChecklist.map((item) => (
                 <p
                   key={item}

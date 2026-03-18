@@ -25,9 +25,9 @@ export type PricingEstimate = {
   highEstimate: number;
 };
 
-const currencyFormatter = new Intl.NumberFormat("en-US", {
+const currencyFormatter = new Intl.NumberFormat("en-GB", {
   style: "currency",
-  currency: "USD",
+  currency: "GBP",
   maximumFractionDigits: 0,
 });
 

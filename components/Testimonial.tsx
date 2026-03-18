@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { testimonialThemes, trustStats } from "@/lib/site";
+import { testimonials, trustStats } from "@/lib/site";
 
 export default function Testimonial() {
   return (
@@ -11,13 +11,12 @@ export default function Testimonial() {
               Testimonials
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl">
-              Rated 4.9/5 by 200+ customers who want cleaning support they can
-              actually rely on.
+              Here is what clients say about the services they booked.
             </h2>
             <p className="text-base leading-7 text-muted-foreground">
-              Trust grows when the service is easy to schedule, the scope is
-              clear before the visit begins, and the finish quality is obvious
-              the moment the work is done.
+              The live SASA site highlights practical feedback from home and
+              office clients who care about price, communication, and a visible
+              cleaning result.
             </p>
           </div>
 
@@ -38,21 +37,21 @@ export default function Testimonial() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {testimonialThemes.map((theme) => (
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {testimonials.map((testimonial) => (
             <Card
-              key={theme.title}
+              key={`${testimonial.author}-${testimonial.quote}`}
               className="border border-foreground/10 bg-white/80 shadow-[0_24px_80px_-60px_rgba(15,23,42,0.65)]"
             >
               <CardHeader>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                  Customer signal
+                  Customer feedback
                 </p>
-                <CardTitle className="text-xl">{theme.title}</CardTitle>
+                <CardTitle className="text-xl">{testimonial.author}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm leading-6 text-muted-foreground">
-                  {theme.description}
+                  “{testimonial.quote}”
                 </p>
               </CardContent>
             </Card>

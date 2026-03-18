@@ -15,13 +15,13 @@ import {
   buildServiceCatalogSchema,
   buildWebPageSchema,
 } from "@/lib/seo";
-import { operatingSteps, services } from "@/lib/site";
+import { differentiators, operatingSteps, services } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Services",
   path: "/services",
   description:
-    "Explore SASA Solutions cleaning services for homes, offices, turnovers, and deep-cleaning support tailored to your schedule and standards.",
+    "Explore SASA Solutions services including regular cleaning, one-off cleaning, end of tenancy, oven cleaning, residential, and office cleaning.",
 });
 
 export default function ServicesPage() {
@@ -33,7 +33,7 @@ export default function ServicesPage() {
           buildWebPageSchema({
             title: "Services",
             description:
-              "Explore SASA Solutions cleaning services for homes, offices, turnovers, and deep-cleaning support tailored to your schedule and standards.",
+              "Explore SASA Solutions services including regular cleaning, one-off cleaning, end of tenancy, oven cleaning, residential, and office cleaning.",
             path: "/services",
           }),
           buildServiceCatalogSchema(),
@@ -46,17 +46,17 @@ export default function ServicesPage() {
               Services
             </p>
             <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground sm:text-5xl">
-              Cleaning support for homes, workplaces, and space resets.
+              Tailor-made cleaning services designed around the job.
             </h1>
             <p className="text-base leading-7 text-muted-foreground">
-              We build scopes around how the property is used, what level of
-              detail matters most, and whether you need one-time support or a
-              recurring rhythm.
+              The live SASA service offer covers regular cleaning, one-off
+              cleaning, end of tenancy, oven cleaning, residential cleaning,
+              and office cleaning.
             </p>
           </div>
         </section>
 
-        <section className="grid gap-6 md:grid-cols-2">
+        <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <Card
               key={service.title}
@@ -70,6 +70,11 @@ export default function ServicesPage() {
                 <CardDescription className="leading-6">
                   {service.description}
                 </CardDescription>
+                {"priceNote" in service ? (
+                  <p className="text-sm font-semibold text-foreground">
+                    {service.priceNote}
+                  </p>
+                ) : null}
               </CardHeader>
               <CardContent className="space-y-3">
                 {service.highlights.map((highlight) => (
@@ -83,6 +88,30 @@ export default function ServicesPage() {
               </CardContent>
             </Card>
           ))}
+        </section>
+
+        <section className="space-y-6">
+          <div className="max-w-2xl space-y-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+              Why clients choose SASA
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-balance text-foreground">
+              Flexible support without losing trust
+            </h2>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {differentiators.map((point) => (
+              <article
+                key={point}
+                className="rounded-[1.5rem] border border-foreground/10 bg-white/80 p-6"
+              >
+                <p className="text-sm leading-6 text-muted-foreground">
+                  {point}
+                </p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="rounded-[2rem] border border-foreground/10 bg-white/75 p-8">

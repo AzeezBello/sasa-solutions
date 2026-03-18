@@ -1,25 +1,40 @@
 export const siteConfig = {
   name: "SASA Solutions",
   shortName: "SASA",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sasasolutions.uk",
   locale: "en_US",
   description:
-    "Dependable residential and commercial cleaning support with clear communication, flexible scheduling, and standards that hold up.",
+    "SASA Solutions was initiated in 2010 and now provides home, office, residential, moving house, school, and hotel cleaning services.",
   ctaHref: "/contact",
   ctaLabel: "Request a quote",
   keywords: [
     "cleaning services",
     "home cleaning",
     "office cleaning",
+    "london cleaners",
     "deep cleaning",
     "move in cleaning",
     "move out cleaning",
     "commercial cleaning",
     "cleaning quote",
   ],
+  foundedYear: 2010,
+  heroImageUrl:
+    "https://sasasolutions.uk/wp-content/uploads/2021/04/sasa-solutions-1-1.jpg",
+  heroImageAlt:
+    "SASA Solutions cleaning team and service banner from the live company site",
+  contact: {
+    phoneDisplay: "+44 7943 683042",
+    phoneHref: "tel:+447943683042",
+    email: "info@sasasolutions.uk",
+    emailHref: "mailto:info@sasasolutions.uk",
+    address: "International House, 12 Constance Street, London, E16 2DQ",
+    hours: ["Mon – Sat : 08:00 – 19:00", "Sunday Closed"],
+  },
   socialImage: {
-    title: "Dependable Cleaning Support",
-    subtitle: "Residential and commercial service plans with instant quote guidance.",
+    title: "Here to help you stay clean and healthy",
+    subtitle:
+      "Home, office, residential, moving house, school, and hotel cleaning services.",
   },
 } as const;
 
@@ -31,156 +46,247 @@ export const navItems = [
 ] as const;
 
 export const heroHighlights = [
-  "Recurring and one-time plans",
-  "Residential and commercial coverage",
-  "Clear scopes before every visit",
+  "Initiated in 2010",
+  "Home, office, residential, moving house, school, and hotel cleaning",
+  "Book, manage, message, and pay online",
 ] as const;
 
 export const operatingSteps = [
   {
-    title: "Scope the space",
+    title: "Choose the cleaning support you need",
     description:
-      "We start with the space type, priorities, and the level of finish you need so the brief is precise from day one.",
+      "From regular home visits to one-off, office, residential, and end of tenancy jobs, services are shaped around what the space needs.",
   },
   {
-    title: "Build the cadence",
+    title: "Pick the time that works for you",
     description:
-      "From one-off resets to recurring support, the schedule is shaped around how the space is actually used.",
+      "The live booking flow is built around flexible timing so customers can choose a visit window that suits their day.",
   },
   {
-    title: "Deliver with consistency",
+    title: "Receive a tailored follow-up",
     description:
-      "Every visit is anchored in the agreed scope, with enough flexibility to adapt when priorities shift.",
+      "Once the request is in, the team follows up with the right scope, service details, and quote for the job.",
   },
 ] as const;
 
 export const quickFacts = [
   {
-    label: "Service models",
-    value: "Recurring support, one-time visits, and turnover-focused resets.",
+    label: "Founded",
+    value: "Established in 2010 and grown from house cleaning into wider London cleaning support.",
   },
   {
-    label: "Best fit",
-    value: "Homes, offices, managed spaces, and move-related cleaning needs.",
+    label: "Location",
+    value: "International House, 12 Constance Street, London, E16 2DQ.",
   },
   {
-    label: "What matters",
-    value: "Reliable standards, respectful communication, and practical scheduling.",
+    label: "Hours",
+    value: "Mon – Sat : 08:00 – 19:00. Sunday closed.",
   },
 ] as const;
 
 export const services = [
   {
-    id: "home-cleaning",
-    eyebrow: "Residential",
-    title: "Home cleaning",
+    id: "regular-cleaning",
+    eyebrow: "Recurring",
+    title: "Regular Cleaning",
     description:
-      "Routine upkeep or one-time refreshes designed around your rooms, surfaces, and household pace.",
-    highlights: ["Kitchens and baths", "Floors and dusting", "Room-by-room priorities"],
+      "Daily, weekly, and monthly cleaning visits with the option to keep the same cleaner on recurring schedules.",
+    highlights: [
+      "Daily, weekly, and monthly visits",
+      "Same cleaner on recurring work",
+      "Book, manage, message, and pay online",
+    ],
+    priceNote: "From £12.95 per hour",
     pricing: {
-      basePrice: 95,
-      perSquareFoot: 0.08,
-      perRoom: 18,
+      basePrice: 52,
+      perSquareFoot: 0.015,
+      perRoom: 8,
+    },
+  },
+  {
+    id: "one-off-cleaning",
+    eyebrow: "Flexible",
+    title: "One-Off Cleaning",
+    description:
+      "One-off cleaning support for homes, offices, and hotels when you need a reset without a recurring plan.",
+    highlights: [
+      "Home, office, and hotel support",
+      "Suitable for one-time resets",
+      "Flexible around demand",
+    ],
+    priceNote: "Quoted to suit the job",
+    pricing: {
+      basePrice: 68,
+      perSquareFoot: 0.02,
+      perRoom: 11,
+    },
+  },
+  {
+    id: "end-of-tenancy",
+    eyebrow: "Turnovers",
+    title: "End of Tenancy",
+    description:
+      "Specialist end of tenancy cleaning delivered by professionals who understand move-out expectations and property handover standards.",
+    highlights: [
+      "Studio flats from £94",
+      "Built around tenancy requirements",
+      "Good fit for moving house",
+    ],
+    priceNote: "From £94",
+    pricing: {
+      basePrice: 94,
+      perSquareFoot: 0.025,
+      perRoom: 16,
+    },
+  },
+  {
+    id: "oven-cleaning",
+    eyebrow: "Detail work",
+    title: "Oven Cleaning",
+    description:
+      "Expert cleaning for burnt carbon ovens using products designed to bring back a cleaner finish.",
+    highlights: [
+      "Light range ovens from £75",
+      "Range ovens up to £90",
+      "Focused product-led restoration",
+    ],
+    priceNote: "From £75",
+    pricing: {
+      basePrice: 75,
+      perSquareFoot: 0.005,
+      perRoom: 4,
+    },
+  },
+  {
+    id: "residential-cleaning",
+    eyebrow: "Residential",
+    title: "Residential Cleaning",
+    description:
+      "Professional home cleaning tailored to your property, rooms, and surrounding areas.",
+    highlights: [
+      "Studio flats from £105",
+      "2-bedroom flats from £160",
+      "Tailored to your needs",
+    ],
+    priceNote: "From £105",
+    pricing: {
+      basePrice: 105,
+      perSquareFoot: 0.02,
+      perRoom: 14,
     },
   },
   {
     id: "office-cleaning",
     eyebrow: "Commercial",
-    title: "Office cleaning",
+    title: "Office Cleaning",
     description:
-      "Quiet, reliable maintenance for shared workspaces, reception areas, meeting rooms, and staff zones.",
-    highlights: ["Shared surfaces", "Restroom restocking", "Flexible service windows"],
+      "Office kitchens, meeting rooms, and restrooms kept clean to support a more presentable working environment.",
+    highlights: [
+      "Frequent cleaning from £13",
+      "One-off cleans from £14",
+      "Meeting rooms, kitchens, and restrooms",
+    ],
+    priceNote: "From £13",
     pricing: {
-      basePrice: 140,
-      perSquareFoot: 0.06,
-      perRoom: 16,
-    },
-  },
-  {
-    id: "move-in-out",
-    eyebrow: "Turnovers",
-    title: "Move-in and move-out",
-    description:
-      "Detailed resets that help properties, rentals, and managed spaces feel ready for the next handover.",
-    highlights: ["Appliance wipe-downs", "Cupboards and skirting", "Turnover-ready finish"],
-    pricing: {
-      basePrice: 180,
-      perSquareFoot: 0.1,
-      perRoom: 22,
-    },
-  },
-  {
-    id: "deep-cleaning",
-    eyebrow: "Detail work",
-    title: "Deep cleaning",
-    description:
-      "Targeted, top-to-bottom attention for seasonal resets, neglected areas, or spaces that need a fuller reset.",
-    highlights: ["Built-up grime removal", "High-touch detailing", "Customized room focus"],
-    pricing: {
-      basePrice: 220,
-      perSquareFoot: 0.11,
-      perRoom: 26,
+      basePrice: 56,
+      perSquareFoot: 0.012,
+      perRoom: 9,
     },
   },
 ] as const;
 
 export const trustStats = [
   {
-    value: "4.9/5",
-    label: "Average customer rating",
+    value: "2010",
+    label: "Year established",
   },
   {
-    value: "200+",
-    label: "Customers served",
+    value: "Mon-Sat",
+    label: "Operating days",
   },
   {
-    value: "4",
-    label: "Core service plans",
+    value: "London",
+    label: "Service base",
   },
 ] as const;
 
-export const testimonialThemes = [
+export const testimonials = [
   {
-    title: "Predictable scheduling",
-    description:
-      "Dependable timing and clear arrival windows help each visit fit the day instead of disrupting it.",
+    quote:
+      "Cheap price and good service. We booked our home cleaning for 4 hours, and the cleaning team did an amazing job.",
+    author: "Sara Jones",
   },
   {
-    title: "Clear visit scopes",
-    description:
-      "The strongest service experiences start with everyone understanding the rooms, tasks, and finish level before work begins.",
+    quote:
+      "The price is good, communication is swift. Our office looks presentable and we can have our meetings in a nice and clean environment.",
+    author: "Jay’s printing center",
   },
   {
-    title: "Noticeable finish quality",
-    description:
-      "Spaces should feel fresher, calmer, and easier to step back into as soon as the clean is complete.",
+    quote:
+      "Our house is impeccably clean and organised. Thank you for cleaning.",
+    author: "Jason Bell",
   },
+  {
+    quote:
+      "The lady did a wonderful cleaning the job and oven. A good service.",
+    author: "Katherine P",
+  },
+  {
+    quote:
+      "We are really happy with the cleaning professionals from SASA Solutions. They did a good job.",
+    author: "Investment Bank, London",
+  },
+  {
+    quote:
+      "A very reliable service. The team is very efficient and polite. I trust them with all kind of cleaning jobs for the office.",
+    author: "KL",
+  },
+] as const;
+
+export const aboutStory = [
+  "SASA Solutions was initiated in 2010 and has grown into a major cleaning business providing home, office, residential, moving house, school, and hotel services.",
+  "The company started as a house cleaning business, with the CEO personally delivering cleaning services five days a week while building and training a team.",
+  "As demand grew through friends, family, and referrals, the business expanded into wider residential, office, hotel, and specialist cleaning support.",
+] as const;
+
+export const visionPoints = [
+  "To make our valued customers happy.",
+  "To be known as an integrity-led cleaning service provider in London.",
+  "To improve daily and set a high standard of cleaning in London.",
+  "To use trustworthy professionals and satisfy customer needs as we clean.",
+] as const;
+
+export const differentiators = [
+  "Spotless, green, open, and unambiguous service information.",
+  "Reliable, professional, and trustworthy cleaners.",
+  "Flexible cleaning support shaped around customer needs.",
+  "A practical promise: clean well without cleaning you out.",
 ] as const;
 
 export const operatingPrinciples = [
   {
-    eyebrow: "Clarity",
-    title: "Everyone knows the scope",
+    eyebrow: "Started",
+    title: "Built from house cleaning in 2010",
     description:
-      "The clean works better when expectations are set before the visit, not guessed in the moment.",
+      "SASA Solutions began as a house cleaning company before growing into broader residential and commercial support.",
   },
   {
-    eyebrow: "Flow",
-    title: "Scheduling follows the space",
+    eyebrow: "Coverage",
+    title: "A wider London cleaning service offer",
     description:
-      "We shape timing and frequency around how the property operates so cleaning supports the routine instead of interrupting it.",
+      "The live site positions SASA across home, office, residential, moving house, school, and hotel cleaning.",
   },
   {
-    eyebrow: "Care",
-    title: "Details stay visible",
+    eyebrow: "Flexibility",
+    title: "Tailor-made services to suit your needs",
     description:
-      "High-touch zones, surfaces that show quickly, and finish quality all stay part of the conversation.",
+      "Regular, one-off, end of tenancy, oven, residential, and office cleaning can all be shaped around the job.",
   },
   {
     eyebrow: "Trust",
-    title: "Communication stays practical",
+    title: "Reliable and trustworthy professionals",
     description:
-      "Questions, adjustments, and special instructions should be easy to surface before they become problems.",
+      "The service promise focuses on practical communication, trustworthy cleaners, and results customers can see.",
   },
 ] as const;
 

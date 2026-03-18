@@ -11,8 +11,10 @@ import {
   formatRoomLabel,
   getCalculatorEstimateFromSearchParams,
 } from "@/lib/pricing";
+import { siteConfig } from "@/lib/site";
 
-const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+const contactEmail =
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? siteConfig.contact.email;
 
 export default function ContactBriefBuilder() {
   const searchParams = useSearchParams();
@@ -146,7 +148,7 @@ export default function ContactBriefBuilder() {
                 setSpaceType(event.target.value);
                 setStatus("idle");
               }}
-              placeholder="Home, office, turnover, retail..."
+              placeholder="Regular cleaning, office, moving house, hotel..."
             />
           </label>
 
@@ -182,7 +184,7 @@ export default function ContactBriefBuilder() {
                 setDetails(event.target.value);
                 setStatus("idle");
               }}
-              placeholder="List priority rooms, special surfaces, access details, or any problem areas."
+              placeholder="List priority rooms, tenancy requirements, oven cleaning needs, access details, or any problem areas."
               rows={6}
             />
           </label>

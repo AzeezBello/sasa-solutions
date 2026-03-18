@@ -38,7 +38,7 @@ export default function Services() {
           </Button>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <Card
               key={service.title}
@@ -52,6 +52,11 @@ export default function Services() {
                 <CardDescription className="leading-6">
                   {service.description}
                 </CardDescription>
+                {"priceNote" in service ? (
+                  <p className="text-sm font-semibold text-foreground">
+                    {service.priceNote}
+                  </p>
+                ) : null}
               </CardHeader>
               <CardContent className="space-y-2">
                 {service.highlights.map((highlight) => (

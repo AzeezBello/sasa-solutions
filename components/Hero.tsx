@@ -15,11 +15,11 @@ export default function Hero() {
         <div className="space-y-8">
           <div className="space-y-5">
             <span className="inline-flex rounded-full border border-primary/15 bg-primary/8 px-4 py-2 text-sm font-semibold text-primary">
-              Residential and commercial cleaning support
+              Here to help you stay clean and healthy
             </span>
             <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance text-foreground sm:text-5xl lg:text-6xl">
-              Cleaning support that feels calm, consistent, and seriously well
-              managed.
+              Home, office, residential, moving house, school, and hotel
+              cleaning services.
             </h1>
             <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
               {siteConfig.description}
@@ -57,7 +57,31 @@ export default function Hero() {
         </div>
 
         <div className="rounded-[2rem] border border-foreground/10 bg-white/75 p-6 shadow-[0_30px_90px_-55px_rgba(15,23,42,0.55)] backdrop-blur">
-          <div className="rounded-[1.75rem] bg-linear-to-br from-primary/12 via-white to-accent p-6">
+          <div
+            className="relative overflow-hidden rounded-[1.75rem] p-6"
+            style={{
+              backgroundImage: `linear-gradient(rgba(19, 57, 49, 0.35), rgba(19, 57, 49, 0.65)), url('${siteConfig.heroImageUrl}')`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="absolute inset-0 bg-linear-to-br from-primary/18 via-transparent to-accent/18" />
+            <div className="relative">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/85">
+                Welcome to
+              </p>
+              <h2 className="mt-3 max-w-lg text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                {siteConfig.name}
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-white/85">
+                Started in {siteConfig.foundedYear}, SASA Solutions has grown
+                from a house cleaning business into wider residential and
+                commercial support across London.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-[1.75rem] bg-linear-to-br from-primary/12 via-white to-accent p-6">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
               How we work
             </p>

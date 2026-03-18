@@ -108,6 +108,23 @@ export function buildOrganizationSchema(): Record<string, unknown> {
     description: siteConfig.description,
     url: getAbsoluteUrl("/"),
     logo: getAbsoluteUrl("/favicon.ico"),
+    email: siteConfig.contact.email,
+    telephone: siteConfig.contact.phoneDisplay,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "International House, 12 Constance Street",
+      addressLocality: "London",
+      postalCode: "E16 2DQ",
+      addressCountry: "GB",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: siteConfig.contact.phoneDisplay,
+      email: siteConfig.contact.email,
+      contactType: "customer service",
+      areaServed: "GB",
+      availableLanguage: "en",
+    },
     knowsAbout: services.map((service) => service.title),
   };
 }
@@ -167,7 +184,7 @@ export function buildServiceCatalogSchema(): Record<string, unknown> {
         },
         offers: {
           "@type": "Offer",
-          priceCurrency: "USD",
+          priceCurrency: "GBP",
           lowPrice: service.pricing.basePrice,
         },
       },
