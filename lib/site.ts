@@ -19,10 +19,10 @@ export const siteConfig = {
     "cleaning quote",
   ],
   foundedYear: 2010,
-  heroImageUrl:
-    "https://sasasolutions.uk/wp-content/uploads/2021/04/sasa-solutions-1-1.jpg",
+  logoImageSrc: "/sasa%20solutions%20logo.png",
+  heroImageSrc: "/images/1.jpeg",
   heroImageAlt:
-    "SASA Solutions cleaning team and service banner from the live company site",
+    "SASA Solutions cleaning team preparing equipment for a client visit",
   contact: {
     phoneDisplay: "+44 7943 683042",
     phoneHref: "tel:+447943683042",

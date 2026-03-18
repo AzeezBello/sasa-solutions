@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -8,8 +9,14 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <span className="flex size-11 items-center justify-center rounded-2xl bg-primary text-sm font-semibold tracking-[0.24em] text-primary-foreground shadow-lg shadow-primary/20">
-            SA
+          <span className="flex h-11 items-center rounded-2xl border border-foreground/10 bg-white px-3 shadow-lg shadow-primary/10">
+            <Image
+              src={siteConfig.logoImageSrc}
+              alt={`${siteConfig.name} logo`}
+              width={112}
+              height={38}
+              className="h-7 w-auto"
+            />
           </span>
           <div className="space-y-0.5">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-foreground">

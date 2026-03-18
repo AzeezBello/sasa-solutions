@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -57,14 +58,16 @@ export default function Hero() {
         </div>
 
         <div className="rounded-[2rem] border border-foreground/10 bg-white/75 p-6 shadow-[0_30px_90px_-55px_rgba(15,23,42,0.55)] backdrop-blur">
-          <div
-            className="relative overflow-hidden rounded-[1.75rem] p-6"
-            style={{
-              backgroundImage: `linear-gradient(rgba(19, 57, 49, 0.35), rgba(19, 57, 49, 0.65)), url('${siteConfig.heroImageUrl}')`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          >
+          <div className="relative min-h-[21rem] overflow-hidden rounded-[1.75rem] p-6">
+            <Image
+              src={siteConfig.heroImageSrc}
+              alt={siteConfig.heroImageAlt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(19,57,49,0.35),rgba(19,57,49,0.65))]" />
             <div className="absolute inset-0 bg-linear-to-br from-primary/18 via-transparent to-accent/18" />
             <div className="relative">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/85">
