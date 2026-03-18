@@ -2,131 +2,41 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import {
-  heroHighlights,
-  operatingSteps,
-  quickFacts,
-  siteConfig,
-} from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 export default function Hero() {
   return (
-    <section className="px-4 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-18 lg:px-8 lg:pt-24">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <div className="space-y-8">
-          <div className="space-y-5">
-            <span className="inline-flex rounded-full border border-primary/15 bg-primary/8 px-4 py-2 text-sm font-semibold text-primary">
-              Here to help you stay clean and healthy
-            </span>
-            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance text-foreground sm:text-5xl lg:text-6xl">
-              Home, office, residential, moving house, school, and hotel
-              cleaning services.
-            </h1>
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              {siteConfig.description}
-            </p>
-          </div>
+    <section className="relative isolate overflow-hidden">
+      <Image
+        src={siteConfig.heroImageSrc}
+        alt={siteConfig.heroImageAlt}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,33,29,0.88)_0%,rgba(12,33,29,0.72)_40%,rgba(12,33,29,0.3)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,24,21,0.2)_0%,rgba(10,24,21,0.1)_35%,rgba(244,248,243,0.16)_100%)]" />
 
-          <div className="flex flex-wrap gap-3">
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              <Link href={siteConfig.ctaHref}>{siteConfig.ctaLabel}</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-foreground/15 bg-white/75 hover:bg-white"
-            >
-              <Link href="/services">Explore services</Link>
-            </Button>
-          </div>
+      <div className="relative mx-auto flex min-h-[72svh] max-w-6xl items-center px-4 py-24 sm:px-6 sm:py-28 lg:min-h-[78svh] lg:px-8 lg:py-32">
+        <div className="max-w-3xl space-y-6">
+          <h1 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl lg:text-7xl">
+            Trusted cleaning support for homes, offices, and move-outs across
+            London.
+          </h1>
+          <p className="max-w-2xl text-base leading-7 text-white/82 sm:text-lg">
+            {siteConfig.name} has delivered practical residential and
+            commercial cleaning since {siteConfig.foundedYear}, with flexible
+            support for one-off jobs, regular visits, and property handovers.
+          </p>
 
-          <ul className="flex flex-wrap gap-2">
-            {heroHighlights.map((highlight) => (
-              <li
-                key={highlight}
-                className="rounded-full border border-foreground/10 bg-white/70 px-3 py-2 text-sm text-muted-foreground"
-              >
-                {highlight}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="rounded-[2rem] border border-foreground/10 bg-white/75 p-6 shadow-[0_30px_90px_-55px_rgba(15,23,42,0.55)] backdrop-blur">
-          <div className="relative min-h-[21rem] overflow-hidden rounded-[1.75rem] p-6">
-            <Image
-              src={siteConfig.heroImageSrc}
-              alt={siteConfig.heroImageAlt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 42vw, 100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(19,57,49,0.35),rgba(19,57,49,0.65))]" />
-            <div className="absolute inset-0 bg-linear-to-br from-primary/18 via-transparent to-accent/18" />
-            <div className="relative">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/85">
-                Welcome to
-              </p>
-              <h2 className="mt-3 max-w-lg text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                {siteConfig.name}
-              </h2>
-              <p className="mt-4 max-w-xl text-sm leading-6 text-white/85">
-                Started in {siteConfig.foundedYear}, SASA Solutions has grown
-                from a house cleaning business into wider residential and
-                commercial support across London.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-6 rounded-[1.75rem] bg-linear-to-br from-primary/12 via-white to-accent p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
-              How we work
-            </p>
-            <div className="mt-6 space-y-4">
-              {operatingSteps.map((step, index) => (
-                <article
-                  key={step.title}
-                  className="rounded-[1.25rem] border border-foreground/8 bg-white/80 p-4"
-                >
-                  <div className="flex items-start gap-4">
-                    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
-                      0{index + 1}
-                    </span>
-                    <div>
-                      <h2 className="text-lg font-semibold text-foreground">
-                        {step.title}
-                      </h2>
-                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            {quickFacts.map((fact) => (
-              <article
-                key={fact.label}
-                className="rounded-[1.25rem] border border-foreground/10 bg-background/75 p-4"
-              >
-                <p className="text-sm font-semibold text-foreground">
-                  {fact.label}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                  {fact.value}
-                </p>
-              </article>
-            ))}
-          </div>
+          <Button
+            asChild
+            size="lg"
+            className="bg-white text-foreground hover:bg-white/92"
+          >
+            <Link href={siteConfig.ctaHref}>{siteConfig.ctaLabel}</Link>
+          </Button>
         </div>
       </div>
     </section>

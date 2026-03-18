@@ -89,6 +89,8 @@ export const services = [
     id: "regular-cleaning",
     eyebrow: "Recurring",
     title: "Regular Cleaning",
+    imageSrc: "/images/6.jpeg",
+    imageAlt: "Cleaner vacuuming a bright living room",
     description:
       "Daily, weekly, and monthly cleaning visits with the option to keep the same cleaner on recurring schedules.",
     highlights: [
@@ -107,6 +109,8 @@ export const services = [
     id: "one-off-cleaning",
     eyebrow: "Flexible",
     title: "One-Off Cleaning",
+    imageSrc: "/images/5.jpeg",
+    imageAlt: "Cleaner smiling while preparing a kitchen surface",
     description:
       "One-off cleaning support for homes, offices, and hotels when you need a reset without a recurring plan.",
     highlights: [
@@ -125,6 +129,8 @@ export const services = [
     id: "end-of-tenancy",
     eyebrow: "Turnovers",
     title: "End of Tenancy",
+    imageSrc: "/images/2.jpeg",
+    imageAlt: "Cleaner mopping a polished interior floor during a property reset",
     description:
       "Specialist end of tenancy cleaning delivered by professionals who understand move-out expectations and property handover standards.",
     highlights: [
@@ -143,6 +149,8 @@ export const services = [
     id: "oven-cleaning",
     eyebrow: "Detail work",
     title: "Oven Cleaning",
+    imageSrc: "/images/3.jpeg",
+    imageAlt: "Cleaner detailing the inside of an oven",
     description:
       "Expert cleaning for burnt carbon ovens using products designed to bring back a cleaner finish.",
     highlights: [
@@ -161,6 +169,8 @@ export const services = [
     id: "residential-cleaning",
     eyebrow: "Residential",
     title: "Residential Cleaning",
+    imageSrc: "/images/4.jpeg",
+    imageAlt: "Cleaner wiping down a residential window",
     description:
       "Professional home cleaning tailored to your property, rooms, and surrounding areas.",
     highlights: [
@@ -179,6 +189,8 @@ export const services = [
     id: "office-cleaning",
     eyebrow: "Commercial",
     title: "Office Cleaning",
+    imageSrc: "/images/9.jpeg",
+    imageAlt: "Cleaner working carefully across an office desk",
     description:
       "Office kitchens, meeting rooms, and restrooms kept clean to support a more presentable working environment.",
     highlights: [
@@ -194,6 +206,27 @@ export const services = [
     },
   },
 ] as const;
+
+export const pageImages = {
+  about: {
+    story: {
+      src: "/images/7.jpeg",
+      alt: "Two SASA cleaning professionals standing with their equipment",
+    },
+    process: {
+      src: "/images/2.jpeg",
+      alt: "Cleaner preparing a polished interior floor for handover",
+    },
+  },
+  contact: {
+    src: "/images/8.jpeg",
+    alt: "Cleaning supplies arranged and ready for a scheduled visit",
+  },
+  testimonials: {
+    src: "/images/5.jpeg",
+    alt: "Cleaner smiling while carrying out careful kitchen cleaning",
+  },
+} as const;
 
 export const trustStats = [
   {

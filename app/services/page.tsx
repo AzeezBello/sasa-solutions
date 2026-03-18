@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import StructuredData from "@/components/StructuredData";
@@ -40,7 +41,7 @@ export default function ServicesPage() {
         ]}
       />
       <div className="mx-auto max-w-6xl space-y-12">
-        <section className="rounded-[2rem] border border-foreground/10 bg-white/75 p-8 shadow-[0_24px_80px_-50px_rgba(15,23,42,0.5)] backdrop-blur">
+        <section className="grid gap-8 rounded-[2rem] border border-foreground/10 bg-white/75 p-8 shadow-[0_24px_80px_-50px_rgba(15,23,42,0.5)] backdrop-blur lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="max-w-3xl space-y-5">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
               Services
@@ -54,14 +55,54 @@ export default function ServicesPage() {
               and office cleaning.
             </p>
           </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {services.slice(0, 3).map((service, index) => (
+              <article
+                key={service.id}
+                className={`relative overflow-hidden rounded-[1.5rem] border border-foreground/10 ${
+                  index === 0 ? "sm:col-span-2 min-h-[16rem]" : "min-h-[11rem]"
+                }`}
+              >
+                <Image
+                  src={service.imageSrc}
+                  alt={service.imageAlt}
+                  fill
+                  sizes={
+                    index === 0
+                      ? "(min-width: 1024px) 50vw, 100vw"
+                      : "(min-width: 1024px) 24vw, 100vw"
+                  }
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,27,24,0.08)_0%,rgba(10,27,24,0.62)_100%)]" />
+                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/82">
+                    {service.eyebrow}
+                  </p>
+                  <h2 className="mt-2 text-xl font-semibold">{service.title}</h2>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <Card
               key={service.title}
-              className="border border-foreground/10 bg-white/80"
+              className="overflow-hidden border border-foreground/10 bg-white/80"
             >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={service.imageSrc}
+                  alt={service.imageAlt}
+                  fill
+                  sizes="(min-width: 1280px) 22vw, (min-width: 768px) 45vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,31,27,0.05)_0%,rgba(11,31,27,0.38)_100%)]" />
+              </div>
               <CardHeader className="space-y-3">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
                   {service.eyebrow}

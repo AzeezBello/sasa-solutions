@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Suspense } from "react";
 
 import ContactBriefBuilder from "@/components/ContactBriefBuilder";
 import StructuredData from "@/components/StructuredData";
 import { buildMetadata, buildWebPageSchema } from "@/lib/seo";
-import { quoteChecklist, siteConfig } from "@/lib/site";
+import { pageImages, quoteChecklist, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
@@ -84,32 +85,54 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="rounded-[1.75rem] border border-foreground/10 bg-background/75 p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              Operating Hours
-            </p>
-            <div className="mt-4 space-y-3">
-              {siteConfig.contact.hours.map((item) => (
-                <p
-                  key={item}
-                  className="rounded-[1rem] border border-foreground/10 bg-white/80 px-4 py-3 text-sm leading-6 text-muted-foreground"
-                >
-                  {item}
+          <div className="space-y-4">
+            <div className="relative min-h-[16rem] overflow-hidden rounded-[1.75rem] border border-foreground/10">
+              <Image
+                src={pageImages.contact.src}
+                alt={pageImages.contact.alt}
+                fill
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,27,24,0.08)_0%,rgba(10,27,24,0.62)_100%)]" />
+              <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/82">
+                  Ready for your brief
                 </p>
-              ))}
+                <p className="mt-2 max-w-sm text-sm leading-6 text-white/82">
+                  Share the property details, timing, and service type, and the
+                  team can shape the right next step.
+                </p>
+              </div>
             </div>
-            <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              Quote checklist
-            </p>
-            <div className="mt-3 space-y-3">
-              {quoteChecklist.map((item) => (
-                <p
-                  key={item}
-                  className="rounded-[1rem] border border-foreground/10 bg-white/80 px-4 py-3 text-sm leading-6 text-muted-foreground"
-                >
-                  {item}
-                </p>
-              ))}
+
+            <div className="rounded-[1.75rem] border border-foreground/10 bg-background/75 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                Operating Hours
+              </p>
+              <div className="mt-4 space-y-3">
+                {siteConfig.contact.hours.map((item) => (
+                  <p
+                    key={item}
+                    className="rounded-[1rem] border border-foreground/10 bg-white/80 px-4 py-3 text-sm leading-6 text-muted-foreground"
+                  >
+                    {item}
+                  </p>
+                ))}
+              </div>
+              <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                Quote checklist
+              </p>
+              <div className="mt-3 space-y-3">
+                {quoteChecklist.map((item) => (
+                  <p
+                    key={item}
+                    className="rounded-[1rem] border border-foreground/10 bg-white/80 px-4 py-3 text-sm leading-6 text-muted-foreground"
+                  >
+                    {item}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         </section>

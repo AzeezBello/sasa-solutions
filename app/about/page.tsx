@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import StructuredData from "@/components/StructuredData";
@@ -8,6 +9,7 @@ import {
   aboutStory,
   differentiators,
   operatingSteps,
+  pageImages,
   siteConfig,
   visionPoints,
 } from "@/lib/site";
@@ -47,16 +49,41 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="rounded-[1.75rem] border border-foreground/10 bg-background/75 p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              Vision
-            </p>
-            <div className="mt-4 space-y-4">
-              {visionPoints.map((point) => (
-                <p key={point} className="text-sm leading-6 text-muted-foreground">
-                  {point}
+          <div className="space-y-4">
+            <div className="relative min-h-[20rem] overflow-hidden rounded-[1.75rem] border border-foreground/10">
+              <Image
+                src={pageImages.about.story.src}
+                alt={pageImages.about.story.alt}
+                fill
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,27,24,0.1)_0%,rgba(10,27,24,0.62)_100%)]" />
+              <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/82">
+                  Since 2010
                 </p>
-              ))}
+                <p className="mt-2 max-w-sm text-sm leading-6 text-white/82">
+                  The company story is rooted in hands-on local service, team
+                  building, and steady referral-led growth across London.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-[1.75rem] border border-foreground/10 bg-background/75 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                Vision
+              </p>
+              <div className="mt-4 space-y-4">
+                {visionPoints.map((point) => (
+                  <p
+                    key={point}
+                    className="text-sm leading-6 text-muted-foreground"
+                  >
+                    {point}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -89,13 +116,26 @@ export default function AboutPage() {
         </section>
 
         <section className="rounded-[2rem] border border-foreground/10 bg-white/75 p-8">
-          <div className="max-w-2xl space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-              Process
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-balance text-foreground">
-              A straightforward path from request to delivery
-            </h2>
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="max-w-2xl space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                Process
+              </p>
+              <h2 className="text-3xl font-semibold tracking-tight text-balance text-foreground">
+                A straightforward path from request to delivery
+              </h2>
+            </div>
+
+            <div className="relative min-h-[16rem] overflow-hidden rounded-[1.75rem] border border-foreground/10">
+              <Image
+                src={pageImages.about.process.src}
+                alt={pageImages.about.process.alt}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,27,24,0.08)_0%,rgba(10,27,24,0.48)_100%)]" />
+            </div>
           </div>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3">

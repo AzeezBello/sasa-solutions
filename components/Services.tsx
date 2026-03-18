@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -42,8 +43,18 @@ export default function Services() {
           {services.map((service) => (
             <Card
               key={service.title}
-              className="border border-foreground/10 bg-white/80 shadow-[0_24px_80px_-60px_rgba(15,23,42,0.65)]"
+              className="group overflow-hidden border border-foreground/10 bg-white/80 shadow-[0_24px_80px_-60px_rgba(15,23,42,0.65)]"
             >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={service.imageSrc}
+                  alt={service.imageAlt}
+                  fill
+                  sizes="(min-width: 1280px) 22vw, (min-width: 768px) 45vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,31,27,0.08)_0%,rgba(11,31,27,0.4)_100%)]" />
+              </div>
               <CardHeader className="space-y-3">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
                   {service.eyebrow}

@@ -1,5 +1,7 @@
+import Image from "next/image";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { testimonials, trustStats } from "@/lib/site";
+import { pageImages, testimonials, trustStats } from "@/lib/site";
 
 export default function Testimonial() {
   return (
@@ -20,20 +22,42 @@ export default function Testimonial() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            {trustStats.map((stat) => (
-              <article
-                key={stat.label}
-                className="rounded-[1.5rem] border border-foreground/10 bg-white/80 px-5 py-4 text-center shadow-[0_20px_60px_-50px_rgba(15,23,42,0.65)]"
-              >
-                <p className="text-2xl font-semibold text-foreground">
-                  {stat.value}
+          <div className="grid gap-4 lg:w-[30rem]">
+            <div className="relative min-h-[15rem] overflow-hidden rounded-[1.75rem] border border-foreground/10 shadow-[0_20px_60px_-50px_rgba(15,23,42,0.65)]">
+              <Image
+                src={pageImages.testimonials.src}
+                alt={pageImages.testimonials.alt}
+                fill
+                sizes="(min-width: 1024px) 28rem, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,27,24,0.1)_0%,rgba(10,27,24,0.62)_100%)]" />
+              <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/82">
+                  Trusted service
                 </p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {stat.label}
+                <p className="mt-2 max-w-sm text-sm leading-6 text-white/82">
+                  Residential and workplace clients keep coming back for visible
+                  results, fair pricing, and reliable communication.
                 </p>
-              </article>
-            ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {trustStats.map((stat) => (
+                <article
+                  key={stat.label}
+                  className="rounded-[1.5rem] border border-foreground/10 bg-white/80 px-5 py-4 text-center shadow-[0_20px_60px_-50px_rgba(15,23,42,0.65)]"
+                >
+                  <p className="text-2xl font-semibold text-foreground">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {stat.label}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
 
